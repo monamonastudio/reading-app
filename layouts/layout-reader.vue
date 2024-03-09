@@ -2,7 +2,7 @@
   <div>
     <!-- Componentize: Home Header -->
     <div class="h-16 px-4 py-2 sticky top-0 bg-black max-w-[1000px] w-full">
-      <div class="flex items-center justify-between my-3">
+      <div class="flex items-center justify-between my-3" @click="$router.back()">
         <font-awesome-icon class="text-2xl" icon="fa-solid fa-xmark" />
         <p>Book Title</p>
         <font-awesome-icon class="text-2xl" icon="fa-solid fa-ellipsis" />
