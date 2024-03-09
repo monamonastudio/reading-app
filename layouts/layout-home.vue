@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <!-- Componentize: Home Header -->
+    <div class="h-28 px-4 py-2 sticky top-0 bg-black max-w-[1000px] w-full">
+      <div class="flex items-center justify-between my-3">
+        <h1 class="text-xl">Radish Fiction</h1>
+        <font-awesome-icon class="text-2xl" icon="fa-solid fa-magnifying-glass" />
+      </div>
+      <div class="grid grid-cols-2 place-items-center gap-3 my-1 w-full">
+        <NuxtLink class="w-full grid py-2 px-4 rounded-lg bg-neutral-600 font-bold">READ</NuxtLink>
+        <NuxtLink class="w-full grid py-2 px-4 rounded-lg bg-neutral-600 font-bold">LISTEN</NuxtLink>
+      </div>
+    </div>
+    <div class="overflow-x-hidden h-[calc(100dvh-208px)]">
+      <slot></slot>
+    </div>
+    <!-- Componentize: Home Nav Tab -->
+    <div class="sticky bottom-0  h-24 max-w-[1000px] w-full px-4">
+      <div class="mx-auto max-w-[450px] h-full grid grid-cols-3 place-items-center">
+        <div class="flex flex-col">
+          <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-house" />
+          <span class="text-sm my-1">Home</span>
+        </div>
+        <div class="flex flex-col">
+          <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-gift" />
+          <span class="text-sm my-1">Gift</span>
+        </div>
+        <div class="flex flex-col">
+          <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-book" />
+          <span class="text-sm my-1">Library</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
