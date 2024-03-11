@@ -7,8 +7,10 @@
   <!-- Componentize: Home Book Card Grid or Home Mini Book Card Grid -->
   <div class="grid grid-flow-col overflow-auto p-4 gap-4">
     <!-- Componentize: Home Book Card Item -->
-    <div class="w-[280px] h-[350px] relative rounded-xl overflow-hidden select-none" @click="navigateTo(`/book/${book.id}`)" v-for="i in 4">
-      <img class="absolute w-[280px] h-[350px]" :src="book.imageRef.value!" alt="" />
+    <div class="w-[280px] h-[350px] relative rounded-xl overflow-hidden select-none" @click="navigateTo(`/book/${book.id}`)" v-for="book in allBooks">
+      <!-- <img class="absolute w-[280px] h-[350px]" :src="book.imageRef.value!" alt="" /> -->
+      <div class="h-full w-full object-cover bg-yellow-300 z-0 absolute rounded-xl">
+      </div>
       <div class="w-[280px] h-[350px] absolute z-10 bg-gradient-to-t from-slate-950 via-transparent">
         <div class="border-t-4 border-indigo-300 bg-black/25 absolute bottom-0 h-32 py-2 px-4">
           <h2 class="text-xl font-semibold">{{ book.title }}</h2>
@@ -45,6 +47,22 @@ async function signOutAndReload() {
   router.go(0);
 }
 
+const booksStore = useBooksStore();
+const { allBooks } = storeToRefs(booksStore);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// START: COMMENT OUT 
 const storage = useFirebaseStorage();
 const bookRef = storageRef(storage, "images/books/self-improvement-guide.webp")
 const bookImageFile = useStorageFile(bookRef) 
@@ -55,4 +73,6 @@ const book = {
   title: "The Procrastination Guide: Answers You Seek",
   author: "John Doe"
 }
+// END: COMMENT OUT 
+
 </script>
