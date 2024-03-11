@@ -21,6 +21,13 @@ export default defineNuxtConfig({
       storageBucket: "app-reader-demo.appspot.com",
       messagingSenderId: "767095443858",
       appId: "1:767095443858:web:097c9c0acb71e8fe41f14b"
+    },
+    auth: {
+      enabled: true,
+      popupRedirectResolver: "browser",
+      persistence: [
+        "indexedDBLocal"
+      ]
     }
   },
   //Stylings

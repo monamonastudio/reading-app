@@ -2,7 +2,7 @@
   <!-- Componentize: Home Section Header -->
   <div class="p-4 flex justify-between">
     <h2 class="text-2xl font-bold">Get Started</h2>
-    <NuxtLink class=" text-indigo-400 font-bold tracking-wide">View All</NuxtLink>
+    <NuxtLink class=" text-indigo-400 font-bold tracking-wide" @click="signOutAndRedirect">View All</NuxtLink>
   </div>
   <!-- Componentize: Home Book Card Grid or Home Mini Book Card Grid -->
   <div class="grid grid-flow-col overflow-auto p-4 gap-4">
@@ -26,6 +26,7 @@
       <img class="absolute w-[360px] h-[180px] object-cover" :src="book.imageRef.value!" alt="" />
     </div>
   </div>
+  {{ useCurrentUser() }}
 </template>
 
 <script lang="ts" setup>
@@ -35,6 +36,14 @@ definePageMeta({
 
 import { ref as storageRef } from "firebase/storage";
 import { useFirebaseStorage, useStorageFile } from "vuefire";
+
+import { signOut } from "firebase/auth";
+
+const auth = useFirebaseAuth()!;
+async function signOutAndRedirect() {
+  await signOut(auth);
+  navigateTo("/auth/login")
+}
 
 const storage = useFirebaseStorage();
 const bookRef = storageRef(storage, "images/books/self-improvement-guide.webp")

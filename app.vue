@@ -6,5 +6,6 @@
         <NuxtPage />
       </NuxtLayout>
     </div>
+    {{ useCurrentUser() }}
   </div>
 </template>
