@@ -4,11 +4,11 @@
     <div class="h-16 px-4 py-2 sticky top-0 bg-black max-w-[1000px] w-full">
       <div class="flex items-center justify-between my-3" @click="$router.back()">
         <font-awesome-icon class="text-2xl" icon="fa-solid fa-xmark" />
-        <p>Book Title - Season 1, Chapter 1</p>
+        <p v-if="chapter">Vol {{ volumeId }}, Ch {{ chapterId }}: {{ chapter.title }}</p>
         <font-awesome-icon class="text-2xl" icon="fa-solid fa-ellipsis" />
       </div>
     </div>
-    <div class="overflow-x-hidden h-[calc(100dvh-160px)] bg-slate-800">
+    <div class="overflow-x-hidden h-[calc(100dvh-160px)] bg-neutral-950 p-8">
       <slot></slot>
     </div>
     <!-- Componentize: Home Nav Tab -->
@@ -33,3 +33,22 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useRoute } from 'vue-router';
+import { chapterDocRef } from '~/firebase/chapter.ref';
+
+const route = useRoute();
+const bookId = route.params.id as string;
+const volumeId = route.params.volumeId as string;
+const chapterId = route.params.chapterId as string;
+
+console.log(bookId, volumeId, chapterId);
+
+
+const chapter = useDocument(chapterDocRef(
+  bookId,
+  volumeId,
+  chapterId
+))
+</script>
