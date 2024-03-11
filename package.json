@@ -15,9 +15,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@nuxt/image": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
     "firebase": "^10.8.1",
     "nuxt": "^3.10.3",
     "nuxt-vuefire": "^1.0.2",
+    "pinia": "^2.1.7",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0",
     "vuefire": "^3.1.23"

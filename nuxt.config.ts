@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "nuxt-vuefire",
-    "@nuxt/image"
+    "@nuxt/image",
+    "@pinia/nuxt"
   ],
 
   // Vuefire integration with Firebase config

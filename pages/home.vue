@@ -2,7 +2,7 @@
   <!-- Componentize: Home Section Header -->
   <div class="p-4 flex justify-between">
     <h2 class="text-2xl font-bold">Get Started</h2>
-    <NuxtLink class=" text-indigo-400 font-bold tracking-wide" @click="signOutAndRedirect">View All</NuxtLink>
+    <NuxtLink class=" text-indigo-400 font-bold tracking-wide" @click="signOutAndReload">View All</NuxtLink>
   </div>
   <!-- Componentize: Home Book Card Grid or Home Mini Book Card Grid -->
   <div class="grid grid-flow-col overflow-auto p-4 gap-4">
@@ -22,17 +22,17 @@
     <h2 class="text-2xl font-bold">Promotions</h2>
   </div>
   <div class="grid grid-flow-col overflow-auto p-4 gap-4">
-    <div class="w-[360px] h-[180px] relative rounded-xl overflow-hidden" v-for="i in 4">
+    <div class="w-[360px] h-[180px] relative rounded-xl overflow-hidden" v-for="i in 3">
       <img class="absolute w-[360px] h-[180px] object-cover" :src="book.imageRef.value!" alt="" />
     </div>
   </div>
-  {{ useCurrentUser() }}
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
   layout: "layout-home"
 })
+const router = useRouter();
 
 import { ref as storageRef } from "firebase/storage";
 import { useFirebaseStorage, useStorageFile } from "vuefire";
@@ -40,9 +40,9 @@ import { useFirebaseStorage, useStorageFile } from "vuefire";
 import { signOut } from "firebase/auth";
 
 const auth = useFirebaseAuth()!;
-async function signOutAndRedirect() {
+async function signOutAndReload() {
   await signOut(auth);
-  navigateTo("/auth/login")
+  router.go(0);
 }
 
 const storage = useFirebaseStorage();

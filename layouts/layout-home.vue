@@ -19,15 +19,15 @@
       <div class="mx-auto max-w-[450px] h-full grid grid-cols-3 place-items-center">
         <div class="flex flex-col">
           <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-house" />
-          <span class="text-sm my-1">Home</span>
+          <span class="text-sm my-1 text-center">Home</span>
         </div>
         <div class="flex flex-col">
           <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-gift" />
-          <span class="text-sm my-1">Gift</span>
+          <span class="text-sm my-1 text-center">Gift</span>
         </div>
         <div class="flex flex-col">
           <font-awesome-icon class="text-2xl lg:text-3xl" icon="fa-solid fa-book" />
-          <span class="text-sm my-1">Library</span>
+          <span class="text-sm my-1 text-center">Library</span>
         </div>
       </div>
     </div>

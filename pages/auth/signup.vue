@@ -18,14 +18,15 @@
 </template>
 
 <script lang="ts" setup>
-import { useFirebaseAuth } from 'vuefire';
 import { getAuth, signInWithPopup } from 'firebase/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const auth = getAuth();
 const googleAuthProvider = new GoogleAuthProvider();
 
+const router = useRouter()
 async function signInWithGoogle() {
-  const result = await signInWithPopup(auth, googleAuthProvider);
+  await signInWithPopup(auth, googleAuthProvider);
+  router.go(0);
 }
 </script>
